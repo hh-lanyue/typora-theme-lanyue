@@ -1,0 +1,1 @@
+将本目录下的所有文件（包括文件夹）无需改动的复制到 typora 的主题文件夹下即可（默认为 C:\Users\用户名\AppData\Roaming\Typora\themes）

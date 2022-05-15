@@ -1,0 +1,723 @@
+/*
+fonts initalization
+*/
+@import url(https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap);
+@font-face {
+	font-family: "Source Code Pro Regular";
+	src: url(./lanyue/SourceCodePro-Regular.ttf);
+}
+@font-face {
+	font-family: "Noto Sans SC Medium";
+	src: url(./lanyue/NotoSansSC-Medium.otf);
+}
+
+@page {
+	size: A4;
+	margin: 8mm 0mm;
+}
+
+/*
+	核心配置区
+*/
+:root {
+	/*
+		字体
+	*/
+	--sans-serif-font: "Noto Sans SC Medium", "Noto Sans SC", sans-serif;
+	--monospace-font: "Source Code Pro Regular", "Source Code Pro", monospace;
+	
+	/*
+		基础颜色区：供宏观配置区使用，不可直接由专项配置区或具体元素使用
+	*/
+	--color-black-light: #969696;
+	--color-black-deep: #333333;
+	--color-black: #000000;
+	--color-red: #FF0000;
+	--color-yellow: #ffff00;
+	--color-gray-light: #d3d3d3;
+	--color-gray: #c0c0c0;
+	--color-gray-deep: #a9a9a9;
+	--color-gray-most: #808080;
+	--color-white: #FFFFFF;
+	--color-white-snow: #fffafa;
+	--color-white-honey: #f0fff0;
+	--color-white-ice: #f5fffa;
+	--color-white-azure: #f0ffff;
+	--color-white-mi: #fffff0;
+	--color-blue: #04BAFB;
+	--color-blue-tiny: #F5FDFD;
+	--color-blue-light: #D6FCFD;
+	--color-blue-deep: #ADE8FD;
+	--color-green-deep: #282C34;
+	
+	
+	/*
+		宏观配置区：供专项配置区使用，不可由具体元素直接调用
+		此区域为用户自定义主题全局配置区域
+		
+	=============================本文件内，只允许修改被本分割线包围的配色方案，不同的配色方案会有不同的主题效果；变量具体的实际意义可根据英文翻译合理猜理解；其余内容禁止修改=============================*/
+		
+	
+	--color-context-background: var(--color-white);
+	--color-context-text: var(--color-black-deep);
+	--color-menu-background: var(--color-white-ice);
+	--color-menu-outline-text: var(--color-black);
+	--color-menu-file-list-text: var(--color-black);
+	--color-aux-one: var(--color-blue);
+	--color-aux-two: var(--color-blue-light);
+	--color-code: var(--color-white);
+	--color-code-background: var(--color-green-deep);
+	--color-shadow: var(--color-black-light);
+	--color-reference: var(--color-gray-deep);
+	--color-placeholder: var(--color-blue-deep);
+	--color-mark: var(--color-yellow);
+	--color-del: var(--color-red);
+	
+	/* 主题二 */
+	/*
+	--color-aux-one: #14B6F6;
+	--color-aux-two: #85E0FF;
+	--color-context-background: #DAF5FF;
+	--color-context-text: #000000;
+	--color-menu-background: #85E0FF;
+	--color-menu-outline-text: #000000;
+	--color-menu-file-list-text: #96959E;
+	--color-code: #96959E;
+	--color-code-background: var(--color-green-deep);
+	--color-shadow: var(--color-black-light);
+	--color-reference: var(--color-gray-deep);
+	--color-placeholder: var(--color-menu-outline-text);
+	--color-mark: var(--color-yellow);
+	--color-del: var(--color-red);
+	*/
+	
+	/* ========================================================== */
+	
+	
+	/*
+		专项配置区：供具体元素直接调用
+	*/
+	--context-background-color: var(--color-context-background);
+	--context-text-color: var(--color-context-text);
+	--menu-background-color: var(--color-menu-background);
+	--menu-outline-text-color: var(--color-menu-outline-text);
+	--menu-file-list-text-color: var(--color-menu-file-list-text);
+	--active-file-bg-color: var(--selection-color);
+	--active-file-border-color: var(--border-color);
+	--active-file-text-color: var(--selection-menu-file-color);
+	--h-sign: var(--color-aux-one);
+	--h-sign-aux: var(--color-aux-two);
+	--table-border-color: var(--border-color);
+	--tr-bg-color: var(--color-aux-two);
+	--tr-hover-bg-color: var(--selection-background-color);
+	--th-bg-color: var(--color-aux-two);
+	--selection-color: var(--color-context-background);
+	--selection-background-color: var(--color-aux-one);
+	--selection-menu-file-color: var(--color-aux-one);
+	--selection-bg-color: var(--selection-background-color);
+	--selection-text-color: var(--selection-color);
+	--select-text-bg-color: var(--selection-background-color);
+	--select-text-font-color: var(--selection-color);
+	--search-select-background-color: var(--menu-background-color);
+    --search-select-text-color: var(--color-aux-two);
+    --search-select-background-hover-color: var(--color-context-background);
+    --search-select-text-hover-color: var(--color-aux-one);
+    --split-color: var(--color-aux-two);
+    --scrollbar-color : var(--color-aux-two);
+    --scrollbar-hover-color: var(--color-aux-one);
+    --a-color: var(--selection-color);
+    --a-hover-color: var(--selection-background-color);
+    --mark-color: var(--color-yellow);
+	--del-color: var(--color-red);
+    --code-background-color: var(--color-code-background);
+    --code-color: var(--color-code);
+    --border-color: var(--color-aux-one);
+    --shadow-color: var(--color-shadow);
+    --reference-color: var(--color-reference);
+    --placeholder-color: var(--color-placeholder);
+    --block-shadow: 0.15rem 0.15rem 0.5rem var(--color-shadow);
+}
+
+html {
+	font-size: 16px;
+	background-color: var(--context-background-color);
+	color: var(--context-text-color);
+}
+
+/*
+	写区
+*/
+#write {
+	background-color: var(--context-background-color);
+	color: var(--context-text-color);
+}
+
+/*
+	导航栏区 与 写区 的分界线
+*/
+#typora-sidebar-resizer {
+	background-color: var(--menu-background-color);
+    color: var(--menu-background-color);
+}
+
+/*
+	导航区 / 侧栏
+*/
+#typora-sidebar {
+	background-color: var(--menu-background-color);
+    color: var(--menu-outline-text-color);
+}
+
+/*
+	导航栏 / 侧栏 大纲区
+*/
+#sidebar-content {
+	background-color: var(--menu-background-color);
+    color: var(--menu-outline-text-color);
+}
+
+/*
+	导航栏文件列表样式
+*/
+#file-library-list-children {
+	border-bottom: 1px solid var(--split-color);
+	color: var(--menu-file-list-text-color);
+	background-color: var(--menu-background-color);
+}
+
+/*
+	隐藏导航栏文件列表中的每个文件的详细信息
+*/
+.file-list-item-summary {
+	display: none;
+	visibility: hidden;
+}
+
+/*
+	设置大纲内容被选中的颜色
+*/
+.outline-item-active {
+	color: var(--selection-background-color);
+}
+
+/*
+	导航栏大纲切换样式
+*/
+#info-panel-tab-outline {
+	color: var(--selection-background-color);
+}
+
+/*
+	导航栏文件切换样式
+*/
+#info-panel-tab-file {
+	color: var(--selection-background-color);
+}
+
+/*
+	导航栏从文件鼠标滚动至文件查找样式
+*/
+#info-panel-tab-search {
+	color: var(--selection-background-color);
+}
+
+/*
+	导航栏搜索框外围
+*/
+#file-library-search {
+	height: 60px;
+}
+
+/*
+	导航栏搜索输入框外围
+*/
+#file-library-search-panel {
+	margin-top:10px;
+}
+
+/*
+	隐藏导航栏搜索框的关闭按钮
+*/
+#close-outline-filter-btn {
+	display: none;
+	visibility: hidden;
+}
+
+/*
+	导航栏搜索输入框
+*/
+#file-library-search-input {
+	outline-style: none ;
+    border: 1px solid var(--selection-background-color);
+    border-radius: 5px;
+    padding: 15px 15px;
+    color: var(--search-select-text-color);
+    background: var(--search-select-background-color);
+}
+#file-library-search-input:focus{
+	background-color: var(--search-select-background-hover-color);
+	color: var(--search-select-text-hover-color);
+    border-color: var(--border-color);
+    outline: 0;
+    -webkit-box-shadow: inset 0 0px 6px var(--border-color),0 0 6px var(--border-color);
+    box-shadow: inset 0 0px 6px var(--border-color),0 0 6px var(--border-color)
+}
+/*
+	导航栏搜索框提示语字体样式
+*/
+input::-webkit-input-placeholder {
+	color: var(--placeholder-color);
+}
+
+#write {
+	font-family: var(--sans-serif-font);
+	max-width: 60rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+/*
+	鼠标悬浮在导航栏任意菜单上后菜单的样式
+*/
+.outline-item:hover {
+    color: var(--selection-background-color);
+    background-color: var(--menu-background-color);
+}
+
+/*
+	去掉 鼠标悬浮时导航栏的下划线
+*/
+.outline-label:hover {
+    text-decoration: none;
+}
+
+/*
+	yaml header settings
+	YAML Front Matter
+
+	YAML
+	YAML是YAML Ain't Markup Language递归缩写，即YAML不是标记语言的意思
+	YAML是便于人阅读基于unicode编码的各种语言的序列号标准。它的用途广泛，用于配置文件，日志文件，跨语言数据共享，对象持久化，复杂的数据结构
+
+	Front Matter 
+	前言；前文部分
+	在YAML Front Matter中可以表明文章的信息（方便各种语言获取），设置一些环境中的格式，定义一些变量，甚至自定义一些变量（方便在不同语言环境下，达到想要的效果）
+*/
+#write pre.md-meta-block {
+	font-family: var(--monospace-font);
+	font-size: 1rem;
+	text-align: left;
+	padding: 0.6rem;
+	color: var(--code-color);
+	background-color: var(--code-background-color);
+	border-radius: 0.4rem;
+}
+
+/*
+	headers settings
+*/
+#write h1 {
+	font-size: 2.2rem;
+	text-align: center;
+	text-shadow: 0.15rem 0.15rem 0.3rem var(--shadow-color);
+}
+#write h2 {
+	font-size: 1.8rem;
+	margin-top: 1.8rem;
+	margin-left: -1.5rem;
+	margin-right: -1.5rem;
+	background-color: var(--h-sign-aux);
+	padding-left: 1rem;
+	padding-right: 1rem;
+	border-left: 0.5rem solid var(--h-sign);
+	border-right: 0.5rem solid var(--h-sign);
+	/*指定背景为椭圆*/
+	border-radius: 0.4rem;
+}
+#write h3 {
+	margin-left: 0rem;
+	font-size: 1.6rem;
+}
+h3:before {
+	/*标题左边logo中的文本*/
+	content: "*";
+	text-align: center;
+	/*设置 logo 垂直居中 要与字体高度一致方可*/
+	line-height: 1.6rem;
+	/*确保标题和logo在同一行*/
+	display: inline-block;
+	/*标题与logo间距*/
+	margin-right: 0.2em;
+	width: 1.6rem;
+	height: 1.6rem;
+	color: var(--h-sign);
+	background: var(--h-sign);
+}
+
+#write h4 {
+	margin-left: 1rem;
+	font-size: 1.5rem;
+}
+h4:before {
+	/*标题左边logo中的文本*/
+	content: "*";
+	text-align: center;
+	/*设置 logo 垂直居中 要与字体高度一致方可*/
+	line-height: 1.5rem;
+	/*确保标题和logo在同一行*/
+	display: inline-block;
+	/*标题与logo间距*/
+	margin-right: 0.2em;
+	/*border-radius: 50%;*/
+	width: 1.5rem;
+	height: 1.5rem;
+	color: var(--h-sign-aux);
+	background: var(--h-sign-aux);
+}
+
+#write h5 {
+	margin-left: 2rem;
+	font-size: 1.4rem;
+}
+h5:before {
+	/*标题左边logo中的文本*/
+	content: "*";
+	text-align: center;
+	/*设置 logo 垂直居中 要与字体高度一致方可*/
+	line-height: 1.4rem;
+	/*确保标题和logo在同一行*/
+	display: inline-block;
+	/*标题与logo间距*/
+	margin-right: 0.2em;
+	border-radius: 50%;
+	width: 1.4rem;
+	height: 1.4rem;
+	color: var(--h-sign);
+	background: var(--h-sign);
+}
+
+#write h6 {
+	margin-left: 3rem;
+	font-size: 1.3rem;
+}
+h6:before {
+	/*标题左边logo中的文本*/
+	content: "*";
+	text-align: center;
+	/*设置 logo 垂直居中 要与字体高度一致方可*/
+	line-height: 1.3rem;
+	/*确保标题和logo在同一行*/
+	display: inline-block;
+	/*标题与logo间距*/
+	margin-right: 0.2em;
+	border-radius: 50%;
+	width: 1.3rem;
+	height: 1.3rem;
+	color: var(--h-sign-aux);
+	background: var(--h-sign-aux);
+}
+
+/*
+	表格设置
+*/
+#write table {
+	border-collapse: collapse;
+}
+#write table thead th{
+	background-color: var(--table-border-color);
+	color: var(--color-context-background);
+}
+#write table th {
+	background-color: var(--th-bg-color);
+}
+#write table th, td {
+	text-align: center;
+	padding: 0.5rem;
+}
+#write table td {
+	border-left: 0.1rem solid var(--table-border-color);
+	border-right: 0.1rem solid var(--table-border-color);
+}
+#write table tbody tr:nth-child(even) {
+	background-color: var(--tr-bg-color);
+}
+#write table tbody tr:hover {
+	background-color: var(--tr-hover-bg-color);
+	color: var(--tr-bg-color);
+}
+
+/*
+	无序列表样式
+*/
+#write ul li {
+  list-style: none;
+  -webkit-transition: .12s;
+          transition: .12s;
+}
+#write ul li:hover {
+  color: var(--selection-background-color);
+}	
+/*
+	为了区分无序列表和任务列表特意加入了属性选择器
+*/
+#write ul li[class=md-list-item]::before {
+  position: absolute;
+  content: '\2022';
+  font-family: Arial;
+  color: var(--selection-background-color);
+  text-align: center;
+  font-size: 2em;
+  opacity: .5;
+  line-height: .75;
+  -webkit-transition: .5s;
+          transition: .5s;
+}
+#write ul li:hover::before {
+  -webkit-transform: scale(2);
+      -ms-transform: scale(2);
+          transform: scale(2);
+  opacity: 1;
+  text-shadow: 0 0 4px;
+  -webkit-transition: .1s;
+          transition: .1s;
+}
+/*
+	有序列表样式
+*/
+#write ol li {
+}
+#write ol li:hover {
+  color: var(--selection-background-color);
+}	
+#write ol li::before {
+  content: '';
+}
+#write ol li:hover::before {
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  background: var(--selection-background-color);
+}
+
+/*
+	任务列表设置
+	单选框设置
+*/
+#write .task-list-item input[type = "checkbox"] {
+	width: 0;
+	height: 0;
+}
+
+/*
+	选中以前的边框样式
+*/
+#write .task-list-item input[type = "checkbox"]::before, #write input[type = "checkbox"]:checked::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	margin-left: 4rem;
+	left: -0.15rem;
+	top: -0.41rem;
+	width: 0.8rem;
+	height: 0.8rem;
+	border: 0.1rem solid var(--selection-background-color);
+	border-radius: 50%;
+	transition: all 0.2s;
+}
+
+/*
+	选中以前，鼠标悬浮于选中框时，选中框中间点的样式
+*/
+#write .task-list-item input[type='checkbox']:hover::before {
+	transition: all 0.2s;
+	background-color: var(--selection-background-color);
+}
+
+/*
+	选中以后选中框中间点的样式
+*/
+#write .task-list-item input[type = "checkbox"]:checked::before {
+	padding: 0.1rem;
+	background-clip: content-box;
+	background-color: var(--selection-background-color);
+}
+
+/*
+	选中以后文本和选中线的样式
+*/
+#write .task-list-item input[type = "checkbox"]:checked + p {
+	text-decoration: line-through;
+	color: var(--selection-background-color);
+}
+
+
+/*
+	引用 设置
+*/
+#write blockquote {
+	color: var(--reference-color);
+	border-left: 0.25rem solid var(--split-color);
+	border-right: 0.25rem solid var(--split-color);
+	border-top: 0.25rem solid var(--split-color);
+	border-bottom: 0.25rem solid var(--split-color);
+	padding: 0.5rem 1rem 0.6rem 1rem;
+}
+#write blockquote::before {
+	display: block;
+	height: 2rem;
+	width: 1.5rem;
+	content: "✎";
+	font-size: 1.2rem;
+	color: var(--selection-background-color);
+	background: var(--selection-color);
+}
+
+/*
+	水平线设置
+*/
+#write hr {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	background-color: var(--split-color);
+	height: 0.13rem;
+	border: 0;
+}
+
+#write p {
+	font-size: 1rem;
+	line-height: 1.6rem;
+	margin-left: 4rem;
+}
+
+#write p:hover {
+	 /*color: var(--selection-background-color);
+	 font-size: 1.1rem;*/
+}
+
+/*
+	代码块设置
+*/
+#write .md-fences {
+	font-family: var(--monospace-font);
+	font-size: 1rem;
+	padding: 0.6rem;
+	background-color: var(--code-background-color);
+	border-radius: 0.4rem;
+	box-shadow: var(--block-shadow);
+}
+.md-fences {
+	background-color: var(--code-background-color);
+}
+
+/*
+	公式设置
+*/
+#write mjx-container {
+	font-size: 1.1rem;
+}
+
+/*
+	它们是具有某些代码语言的特殊代码片段
+*/
+#write pre[lang=’sequence’], #write pre[lang=’flow’], #write pre[lang=’mermaid’] {
+	background-color: var(--code-background-color);
+	border-radius: 0.4rem;
+	box-shadow: var(--block-shadow);
+}
+
+/*
+	inline codes settings
+*/
+#write code {
+	font-family: var(--monospace-font);
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+	padding: 0.05rem 0.3rem;
+	background-color: var(--code-background-color);
+	border-radius: 0.4rem;
+	box-shadow: 0.13rem 0.13rem 0.26rem var(--shadow-color);
+}
+
+/*
+	urls settings
+*/
+#write a {
+	color: var(--context-text-color);
+	text-decoration: none;
+}
+#write a:hover {
+	color: var(--a-hover-color);
+	text-decoration: none;	
+}
+#write a:before {
+	/*标题左边logo中的文本*/
+	content: "☁";
+	text-align: center;
+	/*设置 logo 垂直居中 要与字体高度一致方可*/
+	line-height: 1.6rem;
+	/*确保标题和logo在同一行*/
+	display: inline-block;
+	/*标题与logo间距*/
+	margin-right: 0.2em;
+	width: 1.6rem;
+	height: 1.6rem;
+	color: var(--h-sign);
+}
+
+/*
+	images settings
+*/
+#write img {
+	display: block;
+	margin: 0 auto;
+	border: 0;
+	border-radius: 5px;
+	box-shadow: var(--block-shadow);
+}
+
+/*
+	高亮 == info ==
+*/
+#write mark {
+	background-color: var(--mark-color);
+}
+
+/*
+	被删除线修饰的文本样式 ~ ~ info ~ ~
+*/
+#write del {
+	color: var(--del-color);
+}
+
+/*
+	内容区选中后样式
+*/
+#write ::selection {
+	background-color: var(--selection-bg-color);
+}
+
+/*
+	自定义代码款下面选择高亮语法规则的样式
+*/
+.code-tooltip {
+	background-color: var(--code-background-color);
+	color: var(--code-color);
+}
+
+/*
+	自定义滚动条样式
+*/
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-hover-color);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: var(--scrollbar-hover-color);
+}
+
