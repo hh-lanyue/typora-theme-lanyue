@@ -123,6 +123,8 @@ fonts initalization
     --search-select-text-color: var(--color-aux-two);
     --search-select-background-hover-color: var(--color-context-background);
     --search-select-text-hover-color: var(--color-aux-one);
+    /* 特有属性，typora直接支持：内容区搜索当前选中背景 */
+    --search-select-bg-color: var(--selection-background-color);
     --split-color: var(--color-aux-two);
     --scrollbar-color : var(--color-aux-two);
     --scrollbar-hover-color: var(--color-aux-one);
@@ -261,13 +263,21 @@ html {
     border-color: var(--border-color);
     outline: 0;
     -webkit-box-shadow: inset 0 0px 6px var(--border-color),0 0 6px var(--border-color);
-    box-shadow: inset 0 0px 6px var(--border-color),0 0 6px var(--border-color)
+    box-shadow: inset 0 0px 6px var(--border-color),0 0 6px var(--border-color);
 }
 /*
 	导航栏搜索框提示语字体样式
 */
 input::-webkit-input-placeholder {
 	color: var(--placeholder-color);
+}
+
+/*
+	内容区（写区）全局搜索集体选中（非当前选中）样式
+*/
+.md-search-hit {
+    color: var(--menu-outline-text-color);
+    background-color: var(--selection-background-color);
 }
 
 #write {
