@@ -620,6 +620,15 @@ h6:before {
 .md-fences {
 	background-color: var(--code-background-color);
 }
+/*
+	行内代码块
+*/
+code {
+  background-color: var(--code-background-color);
+  border-radius: 5px;
+  padding: 16px;
+  color: var(--code-color);
+}
 
 /*
 	公式设置
