@@ -1,1 +1,1 @@
-将本目录下的所有文件（包括文件夹）无需改动的复制到 typora 的主题文件夹下即可（默认为 C:\Users\用户名\AppData\Roaming\Typora\themes）
+将本目录下的所有文件及文件夹（除了 效果图 文件夹）无需改动的复制到 typora 的主题文件夹下（默认为 C:\Users\用户名\AppData\Roaming\Typora\themes）；重启 typora 软件即可选择本主题
